@@ -27,6 +27,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+     // show browser window when running tests
+     headless: false,
     //video: "on-first-retry",
     video: {mode: "on-first-retry", size: {width: 1900, height: 1080}},
     screenshot: "on-first-failure",
@@ -50,8 +52,15 @@ export default defineConfig({
         viewport: {width: 1900, height: 1080} 
       },
     },
-    
 
+   
+{
+      name: 'firefox',
+      use: { 
+        ...devices['Desktop Firefox'],
+        viewport: {width: 1850, height: 1000} 
+       },
+    },
     /*
     {
       name: 'chromium',
